@@ -1,0 +1,1 @@
+insert into TICKETS (ID, NUMBER) values (1, '00001');
