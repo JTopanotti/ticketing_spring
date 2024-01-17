@@ -1,18 +1,21 @@
 package io.ticketing.microservices.ticketing;
 
+import java.util.logging.Logger;
+
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-
-import java.util.logging.Logger;
 
 @Configuration
 @ComponentScan
 @EntityScan("io.ticketing.microservices.ticketing")
 @EnableMongoRepositories
 @PropertySource("classpath:db-config.properties")
+@Import(KafkaAutoConfiguration.class)
 public class TicketConfiguration {
     protected Logger logger;
 

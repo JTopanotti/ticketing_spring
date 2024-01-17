@@ -18,5 +18,6 @@ public class OrderController {
     public void newTicketListener(String message) {
         logger.info("-------RECEIVING MESSAGE:-------------");
         logger.info(message);
+        orderRepository.insert(new Order());
     }
 }

@@ -1,9 +1,10 @@
 package io.ticketing.microservices;
 
+import java.net.InetAddress;
+
+import io.ticketing.microservices.services.OrdersServer;
 import io.ticketing.microservices.services.RegistrationServer;
 import io.ticketing.microservices.services.TicketingServer;
-
-import java.net.InetAddress;
 
 public class Main {
 
@@ -57,8 +58,8 @@ public class Main {
 			RegistrationServer.main(args);
 		} else if (serverName.equals("ticketing")) {
 			TicketingServer.main(args);
-//		} else if (serverName.equals("web")) {
-//			WebServer.main(args);
+		} else if (serverName.equals("orders")) {
+			OrdersServer.main(args);
 		} else {
 			// Unrecognized server type - print usage and exit
 			System.out.println("Unknown server type: " + serverName);
@@ -73,7 +74,7 @@ public class Main {
 		System.out.println();
 		System.out.println("Usage: java -jar ... <server-name> [server-port]");
 		System.out.println("     where");
-		System.out.println("       server-name is 'reg', 'registration', " + "'ticketing'");
+		System.out.println("       server-name is 'reg', 'registration', " + "'ticketing', 'orders'");
 		System.out.println("       server-port > 1024");
 		System.out.println(
 				"     optionally specify --registration.server.hostname=<IP-address> if it is not running on localhost,");

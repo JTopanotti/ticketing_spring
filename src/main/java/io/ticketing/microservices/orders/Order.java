@@ -1,5 +1,6 @@
 package io.ticketing.microservices.orders;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,9 +9,9 @@ public class Order {
     @Id
     private String id;
 
-    public Order(String id) {
+    public Order() {
         super();
-        this.id = id;
+        this.id = new ObjectId().toString();
     }
 
     @Override

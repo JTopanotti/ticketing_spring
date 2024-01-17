@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: orders-service
+  freemarker:
+    enabled: false           # Ignore Eureka dashboard FreeMarker templates
+
+# Map the error path to error template (for Thymeleaf)
+error.path: /error
+
+# HTTP Server
+server.port: 2223   # HTTP (Tomcat) port
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  http://localhost:1111/eureka
+    instance:
+      preferIpAddress:  true
+    registerWithEureka: true
+    fetchRegistry: true

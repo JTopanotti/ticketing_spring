@@ -1,13 +1,16 @@
 package io.ticketing.microservices.services;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication(exclude = { HibernateJpaAutoConfiguration.class, //
-        DataSourceAutoConfiguration.class })
+@Configuration
+@EnableAutoConfiguration(exclude = { HibernateJpaAutoConfiguration.class,
+        DataSourceAutoConfiguration.class, KafkaAutoConfiguration.class })
 @EnableEurekaServer
 public class RegistrationServer {
 

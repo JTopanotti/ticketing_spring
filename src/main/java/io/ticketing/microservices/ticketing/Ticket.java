@@ -1,5 +1,6 @@
 package io.ticketing.microservices.ticketing;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,9 +12,9 @@ public class Ticket {
 
     private String number;
 
-    public Ticket(String id, String number) {
+    public Ticket(String number) {
         super();
-        this.id = id;
+        this.id = new ObjectId().toString();
         this.number = number;
     }
 
@@ -22,5 +23,21 @@ public class Ticket {
         return String.format(
                 "Ticket[id=%s, number='%s']",
                 id, number);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 }
